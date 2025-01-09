@@ -1,0 +1,1 @@
+import{X as e}from"./main/chunk-dexie-7a5662ba.js";const r=new e("myDatabase");r.version(1).stores({error:"++id,code,msg,router,file,createTime",performance:"++id,loadTime,FP,FCP,LCP,TTI,TCP,DNS,TTFB,domReady,dom,resources,redirect,createTime"});export{r as d};

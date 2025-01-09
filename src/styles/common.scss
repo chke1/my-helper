@@ -1,0 +1,153 @@
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--el-bg-color);
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+// 主题切换特效
+.dark {
+  background-color: #000;
+}
+html {
+  --dark-clip-x: 0px;
+  --dark-clip-y: 0px;
+}
+::view-transition-old(*) {
+  animation: none;
+}
+::view-transition-new(*) {
+  animation: effects 0.3s ease-in;
+}
+@keyframes effects {
+  from {
+    clip-path: circle(0% at var(--dark-clip-x) var(--dark-clip-y));
+  }
+  to {
+    clip-path: circle(100% at var(--dark-clip-x) var(--dark-clip-y));
+  }
+}
+
+/* element-puls 样式覆盖 */
+.el-dialog__body {
+  padding: 20px 22px;
+  min-height: 320px;
+}
+
+.el-dialog__header {
+  border-bottom: 1px solid var(--el-border-color);
+  box-sizing: border-box;
+  margin-right: 0px;
+  font-size: 16px;
+  padding-bottom: 14px;
+  padding-top: 16px;
+}
+
+.el-form-item__error {
+  font-size: 14px;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: var(--el-color-info-light-3);
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: initial;
+}
+
+// 强制换行
+// word-wrap: break-word; 表示当文本超出边界时，自动将单词截断换行，但如果单词本身就很长，仍然会超出边界；
+// word-break: break-all; 表示任意位置换行，甚至可以在单词中间断开。但是会破坏单词完整性
+// white-space: normal; 默认属性值，表示文本中多个空格和换行都会被合并为一个空格
+// white-space: pre-wrap; 换行符 空格符完全显示
+.line-feed {
+  word-wrap: break-word;
+  word-break: break-all;
+  // white-space: normal;
+  white-space: pre-wrap;
+}
+
+// 强制不换行
+.no-line-feed {
+  word-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+// 卡片样式
+.card-box {
+  background: var(--el-bg-color);
+  border-radius: 6px;
+  box-shadow: var(--el-box-shadow-lighter);
+  // border: 1px solid var(--el-border-color-light);
+  transition: var(--el-transition-duration);
+}
+
+// 公共标题样式
+.is-title {
+  display: flex;
+  align-items: center;
+  height: 22px;
+  line-height: 22px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--el-text-color-primary);
+  margin-top: 0px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    margin-right: 8px;
+    background: var(--el-color-primary);
+    border-radius: 2px;
+  }
+}
+
+// 表格的el-tabs样式
+.table-tabs {
+  padding: 0 18px;
+  box-sizing: border-box;
+
+  .el-tabs__header {
+    margin: 6px 0 0px;
+  }
+
+  .el-tabs__nav-wrap::after {
+    display: none;
+  }
+}
+
+// 页面容器
+.wrap-page {
+  width: 100%;
+  height: auto;
+  flex: 1;
+  background-color: var(--el-fill-color-light);
+}
+
+.dialog-footer {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: flex-end;
+  padding-top: 26px;
+  box-sizing: border-box;
+
+  .el-button {
+    min-width: 88px;
+  }
+}

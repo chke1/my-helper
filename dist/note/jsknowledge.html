@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./note.css" />
+  </head>
+
+  <body>
+    <h2 class="title" id="jsknowledge">javascript相关</h2>
+    <div class="item-title" id="jsknowledge-datatype">
+      <span>8种数据类型</span>
+      <div class="item-child">
+        <span>基本数据类型</span>
+        <ul>
+          <li>Number（数值，包含NaN）</li>
+          <li>String（字符串）</li>
+          <li>Boolean（布尔值）</li>
+          <li>Undefined（未定义/未初始化）</li>
+          <li>Null（空对象）</li>
+          <li>Symbol（独一无二的值，ES6 新增）</li>
+          <li>BigInt （大整数，能够表示超过 Number 类型大小限制的整数，ES 2020新增）</li>
+        </ul>
+      </div>
+      <div class="item-child">
+        <span>引用数据类型</span>
+        <ul>
+          <li>Object（对象。Array/数组 和 function/函数 也属于对象的一种）</li>
+        </ul>
+      </div>
+    </div>
+    <div class="item-title" id="jsknowledge-curry">
+      <span>柯里化函数</span>
+      <span> ：将一个接受多个参数的函数转换成一系列使用一个参数的函数；</span>
+      <div class="item-child">
+        <span>1. 参数复用：</span>
+        <span>可以使我们预先固定一些参数，形成一个部分应用的函数；减少参数传递的冗余</span>
+      </div>
+      <div class="item-child">
+        <span>2. 延迟计算：</span>
+        <span>
+          允许我们将函数调用分批进行，而不是一次性传递所有参数；允许我们将函数调用分批进行，而不是一次性传递所有参数
+        </span>
+      </div>
+      <div class="item-child">
+        <span>3. 代码组合和复用：</span>
+        <span> 有助于创建可以被复用或组合成更复杂形式的函数。 </span>
+      </div>
+      <div class="item-child">
+        <span>4. 更易读：</span>
+        <span>
+          柯里化技术可以让我们的代码更加模块化和函数式，进而提高代码的可读性。柯里化函数更加聚焦于单一职责，这样可以让代码逻辑更清晰
+        </span>
+      </div>
+    </div>
+
+    <div class="item-title" id="jsknowledge-curry">
+      <span>浏览器读写能力</span>
+      <span> ：允许浏览器进行读写操作的API</span>
+      <div class="item-child">
+        <span>1. Web Storage API：</span>
+        <span>
+          通过localStorage和sessionStorage提供了在浏览器中存储数据的能力。开发人员可以使用这些API将数据以键值对的形式存储在浏览器本地，读取和修改数据。
+        </span>
+      </div>
+      <div class="item-child">
+        <span>2. IndexedDB API：</span>
+        <span>
+          IndexedDB是浏览器提供的一种高性能的非关系型数据库API。开发人员可以使用IndexedDB
+          API在浏览器中创建和管理数据库，进行复杂的数据存储、查询和索引操作。
+        </span>
+      </div>
+      <div class="item-child">
+        <span>3. File API：</span>
+        <span>
+          File API允许浏览器读取和处理本地文件。开发人员可以使用File
+          API选择本地文件并读取其内容，也可以通过FileWriter将数据写入本地文件。
+        </span>
+      </div>
+      <div class="item-child">
+        <span>4. Web Sockets：</span>
+        <span>
+          WebSocket是一种在浏览器和服务器之间实现全双工通信的协议。通过WebSocket
+          API，浏览器可以与服务器建立持久的双向连接，并进行实时的数据读写操作。
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

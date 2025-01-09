@@ -1,0 +1,1 @@
+import{f as o}from"./main/chunk-element-plus-b8cc1db0.js";const s=(e={})=>new Promise((t,n)=>{o({title:"提示",message:"操作不可逆，请谨慎操作",showCancelButton:!0,showConfirmButton:!0,closeOnClickModal:!1,draggable:!0,confirmButtonText:"确认",cancelButtonText:"取消",type:"warning",...e}).then(t).catch(()=>{})});export{s as M};

@@ -1,0 +1,60 @@
+// 主题
+$themes: (
+  light: (
+    bgColor: #ffffff,
+    textColor: #303133,
+    borderColor: #303133,
+  ),
+  dark: (
+    bgColor: #141414,
+    textColor: #cfd3dc,
+    borderColor: #dcdfe6,
+  ),
+);
+$curTheme: light;
+@mixin useTheme {
+  @each $key, $value in $themes {
+    $curTheme: $key !global;
+    html[data-theme='#{$key}'] & {
+      @content;
+    }
+  }
+}
+@function getVar($key) {
+  $themeMap: map-get($themes, $curTheme);
+  @return map-get($themeMap, $key);
+}
+
+// 溢出省略
+@mixin useTextEllipsis($lineNum: 1) {
+  -webkit-line-clamp: $lineNum;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 强制换行
+@mixin useLineFeed {
+  word-wrap: break-word; // 表示当文本超出边界时，自动将单词截断换行，但如果单词本身就很长，仍然会超出边界；
+  word-break: break-all; // 表示任意位置换行，甚至可以在单词中间断开。但是会破坏单词完整性
+  // white-space: normal; // 默认属性值，表示文本中多个空格和换行都会被合并为一个空格
+  white-space: pre-wrap; // 换行符 空格符完全显示
+}
+
+// 强制不换行
+@mixin useNoLineFeed {
+  word-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+// 卡片样式
+@mixin card-box {
+  background: var(--el-bg-color);
+  border-radius: 6px;
+  box-shadow: var(--el-box-shadow-lighter);
+  // border: 1px solid var(--el-border-color-light);
+  transition: var(--el-transition-duration);
+}
