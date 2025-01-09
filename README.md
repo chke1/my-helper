@@ -44,24 +44,24 @@
 
 ## 项目示例图
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/login.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/login.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/home.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/home.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/table.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/table.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/setting1.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/setting1.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/setting2.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/setting2.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/performance.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/performance.jpg" />
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/error.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/error.jpg" />
 
 
 ## 暗黑主题
 
-<img src="http://ch-ke.gitee.io/assets-store/helper-preview/home-dark.jpg" />
+<img src="https://chke1.github.io/my-helper/helper-preview/home-dark.jpg" />
 
 ## 性能和细节处理
 
