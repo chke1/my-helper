@@ -63,6 +63,7 @@ export default defineConfig((event) => {
     },
 
     build: {
+      outDir: 'docs',
       minify: 'esbuild', // terser, esbuild
       terserOptions: {
         // terser时去除日志
