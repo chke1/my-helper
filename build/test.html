@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>风车</title>
+    <style>
+      div {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <canvas id="windmill" height="300px" width="300px" style="border: 1px solid #1d96e8"></canvas>
+      <input type="button" value="start" title="开始" onclick="startWindmill()" />
+      <input type="button" value="stop" title="停止" onclick="stopWindmill()" />
+      <input type="button" value="upSpeed" title="加速" onclick="upSpeed()" />
+      <input type="button" value="downSpeed" title="减速" onclick="downSpeed()" />
+    </div>
+  </body>
+  <script>
+    var internal = 0; //初始化间隔
+    var internal_Max = 60; //最大间隔
+    var rotation_angle = 360.0 / internal_Max; //旋转角度
+    var internal_time = 1000; //事件间隔(毫秒)
+    drawWindmill();
+    console.log(123123);
+
+    var timer = null;
+    //开始风车
+    function startWindmill() {
+      console.log(123123);
+      //转动风车
+      function rotateWindmill() {
+        internal++;
+        if (internal > internal_Max) {
+          internal = 0;
+        }
+        drawWindmill();
+        timer = setTimeout(rotateWindmill, internal_time);
+      }
+      rotateWindmill();
+    }
+    //停止风车
+    function stopWindmill() {
+      clearInterval(timer);
+    }
+    //加速风车
+    function upSpeed() {
+      internal_time *= 0.8;
+    }
+    //减速风车
+    function downSpeed() {
+      internal_time *= 1.5;
+    }
+
+    //绘制风车
+    function drawWindmill() {
+      var now = new Date();
+      var canvas = document.getElementById('windmill');
+      var ctx = canvas.getContext('2d');
+      ctx.save();
+      ctx.clearRect(0, 0, 300, 300);
+      //绘制椭圆底座
+      ctx.beginPath();
+      ctx.fillStyle = 'black';
+      var circle_x = canvas.width / 2.0;
+      var circle_y = (canvas.height * 3) / 4.0;
+      var radiusX = canvas.height / 4.0;
+      var radiusY = radiusX / 3.0;
+      var rotation = 0;
+      var startAngle = 0;
+      var endAngle = Math.PI * 2;
+      var anticlockwise = false;
+      ctx.ellipse(
+        circle_x,
+        circle_y,
+        radiusX,
+        radiusY,
+        rotation,
+        startAngle,
+        endAngle,
+        anticlockwise,
+      );
+      console.log(ctx.isPointInPath(circle_x, circle_y), 'isPointInPath');
+      ctx.fill();
+
+      //绘制旗杆
+      ctx.beginPath();
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      var line_start_x = circle_x;
+      var line_start_y = circle_y;
+      var line_end_x = line_start_x;
+      var line_end_y = canvas.height / 4.0;
+      ctx.moveTo(line_start_x, line_start_y);
+      ctx.lineTo(line_end_x, line_end_y);
+      console.log(ctx.isPointInPath(line_start_x, line_start_y), 'line_end_x');
+      ctx.stroke();
+
+      //绘制扇叶
+      ctx.strokeStyle = 'green';
+      var sy_length = canvas.height / 8.0;
+      ctx.save();
+      ctx.translate(line_end_x, line_end_y);
+      ctx.rotate(internal * rotation_angle);
+      for (var i = 1; i <= 3; i++) {
+        ctx.rotate((Math.PI * 2) / 3);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(50, 0);
+        ctx.stroke();
+      }
+
+      ctx.restore();
+      ctx.restore();
+    }
+  </script>
+</html>
