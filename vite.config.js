@@ -10,7 +10,7 @@ const modeMap = {
   a: { port: 2000, proxy: 'http://' },
   b: { port: 2001, proxy: 'http://' },
   c: { port: 2002, proxy: 'http://' },
-  development: { port: 6000, proxy: 'http://' },
+  development: { port: 8080, proxy: 'http://' },
   production: { port: 9000, proxy: 'http://' },
 };
 

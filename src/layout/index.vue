@@ -19,11 +19,13 @@
           返回
         </el-button>
         <ivue-tabs></ivue-tabs>
+
+        <el-icon @click="onFullscrenn" :size="18"><FullScreen /></el-icon>
       </div>
 
       <section class="article-view" ref="routerViewRef">
         <router-view v-slot="{ Component }">
-          <transition :name="`slide-${globalStore.transitionSlide}`" mode="out-in">
+          <transition :name="`slide-${globalStore.transitionSlide}`" mode="out-in" ref="mainRef">
             <keep-alive :include="includeList" :max="includeMax">
               <component :is="Component" />
             </keep-alive>
@@ -37,7 +39,7 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import { ArrowLeft } from '@element-plus/icons-vue';
+import { ArrowLeft, FullScreen } from '@element-plus/icons-vue';
 import ivueMenu from './components/menu/index.vue';
 import ivueHeader from './components/header/index.vue';
 import ivueFooter from './components/footer/index.vue';
@@ -50,6 +52,9 @@ const globalStore = useGlobalStore();
 import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
+
+// useEventListener
+import { useEventListener } from '@/hooks/useEventListener/index.js';
 
 /**
  * 使用keep-alive缓存需要满足
@@ -73,6 +78,8 @@ const isBreadcrumb = computed(() => !!globalStore.isBreadcrumb);
 // 切换页面重置滚动条位置
 const routerViewRef = ref();
 
+const mainRef = ref();
+
 // 返回
 const handleBack = () => {
   router.back();
@@ -93,6 +100,43 @@ const updateTabs = (to) => {
   globalStore.setSingleState('keepAliveInclude', data);
 };
 updateTabs(route);
+
+const isFullScreen = ref(false);
+
+// 监听全屏
+useEventListener(document, 'fullscreenchange', () => {
+  isFullScreen.value = !isFullScreen.value;
+});
+
+// 开启全屏
+const onFullscrenn = () => {
+  if (!isFullScreen.value) {
+    if (mainRef.value.requestFullscreen) {
+      mainRef.value.requestFullscreen();
+    } else if (mainRef.value.webkitRequestFullScreen) {
+      mainRef.value.webkitRequestFullScreen();
+    } else if (mainRef.value.mozRequestFullScreen) {
+      mainRef.value.mozRequestFullScreen();
+    } else if (mainRef.value.msRequestFullscreen) {
+      // IE11
+      mainRef.value.msRequestFullscreen();
+    }
+  } else {
+    console.log(document.exitFullscreen, 'document.exitFullscreen');
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      // Firefox
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      // Chrome, Safari and Opera
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      // IE/Edge
+      document.msExitFullscreen();
+    }
+  }
+};
 
 // 监听路由创建或更新tabs
 router.afterEach((to) => {

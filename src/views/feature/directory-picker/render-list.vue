@@ -1,11 +1,15 @@
 <template>
   <div class="render-list">
     <div class="list-item card-box" v-if="item.type === 1">
-      <div class="list-item-name line-feed">{{ item.name }}</div>
+      <template v-if="isFileName">
+        <div class="list-item-name line-feed">{{ item.name }}</div>
+      </template>
       <div>文件夹</div>
     </div>
     <div class="list-item card-box" v-if="item.type === 2">
-      <div class="list-item-name line-feed">{{ item.name }}</div>
+      <template v-if="isFileName">
+        <div class="list-item-name line-feed">{{ item.name }}</div>
+      </template>
       <el-image
         class="file-img"
         lazy
@@ -15,7 +19,9 @@
       />
     </div>
     <div class="docx-box" v-if="item.type === 3">
-      <div class="list-item-name line-feed">{{ item.name }}</div>
+      <template v-if="isFileName">
+        <div class="list-item-name line-feed">{{ item.name }}</div>
+      </template>
       <vue-office-docx
         v-if="docxSrc"
         :src="docxSrc"
@@ -40,6 +46,10 @@ const props = defineProps({
       return {};
     },
   },
+  isFileName: {
+    type: [Boolean, Number],
+    default: true,
+  },
 });
 
 const docxSrc = ref('');
@@ -63,6 +73,9 @@ getfile();
 
 <style lang="scss" scoped>
 .render-list {
+  border-top: 1px dashed #d8d8d8;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .list-item {

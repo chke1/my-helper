@@ -28,20 +28,22 @@
             v-for="item in renderState.children"
             :key="item.name"
             :item="item"
+            :isFileName="formData.isFileName"
           ></render-list>
         </div>
         <render-list
           v-if="renderState.type > 1"
           :item="renderState"
           :key="renderState.name"
+          :isFileName="formData.isFileName"
         ></render-list>
       </div>
     </div>
 
-    <c-dialog title="选择类型" :width="600" name="file-type-popup">
+    <c-dialog title="选择类型" :width="600" :append-to-body="false" name="file-type-popup">
       <c-form
         ref="formRef"
-        label-width="100px"
+        label-width="150px"
         isDialog
         :model="formData"
         :rows="formRows"
@@ -90,6 +92,7 @@ const groupData = ref({
 const formData = ref({
   fileType: [],
   isFlat: 0,
+  isFileName: 1,
 });
 
 const formRows = ref([
@@ -97,6 +100,7 @@ const formRows = ref([
     formType: 'select',
     prop: 'fileType',
     label: '文件类型:',
+    teleported: false,
     optionList: Object.entries(fileTypeMap).map(([key, value]) => {
       return { label: value.label, value: key };
     }),
@@ -105,6 +109,13 @@ const formRows = ref([
     formType: 'switch',
     prop: 'isFlat',
     label: '是否扁平化:',
+    inactiveValue: 0,
+    activeValue: 1,
+  },
+  {
+    formType: 'switch',
+    prop: 'isFileName',
+    label: '是否显示文件名称:',
     inactiveValue: 0,
     activeValue: 1,
   },
