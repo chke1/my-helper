@@ -20,12 +20,14 @@
         </el-button>
         <ivue-tabs></ivue-tabs>
 
-        <el-icon @click="onFullscrenn" :size="18"><FullScreen /></el-icon>
+        <el-icon @click="onFullscrenn" :size="18" class="article__fullscreen">
+          <FullScreen />
+        </el-icon>
       </div>
 
       <section class="article-view" ref="routerViewRef">
         <router-view v-slot="{ Component }">
-          <transition :name="`slide-${globalStore.transitionSlide}`" mode="out-in" ref="mainRef">
+          <transition :name="`slide-${globalStore.transitionSlide}`" mode="out-in">
             <keep-alive :include="includeList" :max="includeMax">
               <component :is="Component" />
             </keep-alive>
@@ -78,8 +80,6 @@ const isBreadcrumb = computed(() => !!globalStore.isBreadcrumb);
 // 切换页面重置滚动条位置
 const routerViewRef = ref();
 
-const mainRef = ref();
-
 // 返回
 const handleBack = () => {
   router.back();
@@ -111,15 +111,15 @@ useEventListener(document, 'fullscreenchange', () => {
 // 开启全屏
 const onFullscrenn = () => {
   if (!isFullScreen.value) {
-    if (mainRef.value.requestFullscreen) {
-      mainRef.value.requestFullscreen();
-    } else if (mainRef.value.webkitRequestFullScreen) {
-      mainRef.value.webkitRequestFullScreen();
-    } else if (mainRef.value.mozRequestFullScreen) {
-      mainRef.value.mozRequestFullScreen();
-    } else if (mainRef.value.msRequestFullscreen) {
+    if (routerViewRef.value.requestFullscreen) {
+      routerViewRef.value.requestFullscreen();
+    } else if (routerViewRef.value.webkitRequestFullScreen) {
+      routerViewRef.value.webkitRequestFullScreen();
+    } else if (routerViewRef.value.mozRequestFullScreen) {
+      routerViewRef.value.mozRequestFullScreen();
+    } else if (routerViewRef.value.msRequestFullscreen) {
       // IE11
-      mainRef.value.msRequestFullscreen();
+      routerViewRef.value.msRequestFullscreen();
     }
   } else {
     console.log(document.exitFullscreen, 'document.exitFullscreen');
@@ -184,6 +184,10 @@ router.afterEach((to) => {
     display: flex;
     flex-direction: column;
     position: relative;
+  }
+
+  &__fullscreen {
+    cursor: pointer;
   }
 }
 

@@ -1,5 +1,5 @@
 /* 鼠标手势 */
-.c-cursor-pointer {
+.is-cursor-pointer {
   cursor: pointer;
 }
 
@@ -128,30 +128,39 @@
 .w-10 {
   width: 10px;
 }
+
 .w-20 {
   width: 20px;
 }
+
 .w-30 {
   width: 30px;
 }
+
 .w-40 {
   width: 40px;
 }
+
 .w-50 {
   width: 50px;
 }
+
 .w-60 {
   width: 60px;
 }
+
 .w-70 {
   width: 70px;
 }
+
 .w-80 {
   width: 80px;
 }
+
 .w-90 {
   width: 90px;
 }
+
 .w-100 {
   width: 100px;
 }
@@ -160,30 +169,39 @@
 .h-10 {
   height: 10px;
 }
+
 .h-20 {
   height: 20px;
 }
+
 .h-30 {
   height: 30px;
 }
+
 .h-40 {
   height: 40px;
 }
+
 .h-50 {
   height: 50px;
 }
+
 .h-60 {
   height: 60px;
 }
+
 .h-70 {
   height: 70px;
 }
+
 .h-80 {
   height: 80px;
 }
+
 .h-90 {
   height: 90px;
 }
+
 .h-100 {
   height: 100px;
 }
@@ -192,27 +210,35 @@
 .radius-4 {
   border-radius: 4px;
 }
+
 .radius-6 {
   border-radius: 6px;
 }
+
 .radius-8 {
   border-radius: 8px;
 }
+
 .radius-10 {
   border-radius: 10px;
 }
+
 .radius-12 {
   border-radius: 12px;
 }
+
 .radius-16 {
   border-radius: 16px;
 }
+
 .radius-18 {
   border-radius: 18px;
 }
+
 .radius-20 {
   border-radius: 20px;
 }
+
 .radius-full {
   border-radius: 50%;
 }
@@ -221,79 +247,103 @@
 .m-2 {
   margin: 2px;
 }
+
 .m-4 {
   margin: 4px;
 }
+
 .m-6 {
   margin: 6px;
 }
+
 .m-8 {
   margin: 8px;
 }
+
 .m-10 {
   margin: 10px;
 }
+
 /* margin-top */
 .mt-2 {
   margin-top: 2px;
 }
+
 .mt-4 {
   margin-top: 4px;
 }
+
 .mt-6 {
   margin-top: 6px;
 }
+
 .mt-8 {
   margin-top: 8px;
 }
+
 .mt-10 {
   margin-top: 10px;
 }
+
 /* margin-bottom */
 .mb-2 {
   margin-bottom: 2px;
 }
+
 .mb-4 {
   margin-bottom: 4px;
 }
+
 .mb-6 {
   margin-bottom: 6px;
 }
+
 .mb-8 {
   margin-bottom: 8px;
 }
+
 .mb-10 {
   margin-bottom: 10px;
 }
+
 /*  margin-left */
 .ml-2 {
   margin-left: 2px;
 }
+
 .ml-4 {
   margin-left: 4px;
 }
+
 .ml-6 {
   margin-left: 6px;
 }
+
 .ml-8 {
   margin-left: 8px;
 }
+
 .ml-10 {
   margin-left: 10px;
 }
+
 /* margin-right */
 .mr-2 {
   margin-right: 2px;
 }
+
 .mr-4 {
   margin-right: 4px;
 }
+
 .mr-6 {
   margin-right: 6px;
 }
+
 .mr-8 {
   margin-right: 8px;
 }
+
 .mr-10 {
   margin-right: 10px;
 }
