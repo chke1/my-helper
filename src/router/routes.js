@@ -270,9 +270,9 @@ export const routes = [
     meta: { title: '测试', icon: true },
     children: [
       {
-        path: '/test/test1',
-        component: 'views/test/test1/index.vue',
-        meta: { title: '测试1', keepAlive: true },
+        path: '/test/knowledge-point',
+        component: 'views/test/knowledge-point/index.vue',
+        meta: { title: '知识点', keepAlive: true },
       },
     ],
   },

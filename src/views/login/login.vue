@@ -152,6 +152,9 @@ const init = () => {
     userData.password = password;
     userData.avatarUrl = avatarUrl;
     toSkip();
+  } else {
+    userData.accountId = 1;
+    handleSelectAccount();
   }
 
   rememberPassword.value = _rememberPassword || '0';

@@ -7,6 +7,8 @@
         <td>{{ item.desc }}</td>
       </tr>
     </table>
+
+    <p>vue属性</p>
     <table>
       <tr v-for="(item, index) in familiarMethod" :key="index">
         <td>{{ item.name }}</td>
@@ -44,6 +46,31 @@
 import { ref } from 'vue';
 
 const familiarAttributes = ref([
+  {
+    name: 'vue3和vue2的区别',
+    desc: `
+      1、源码组织方式变化：使用 TS 重写
+      2、支持 Composition API：基于函数的API，更加灵活组织组件逻辑（vue2用的是options api）
+      3、响应式系统提升：Vue3中响应式数据原理改成proxy，可监听动态新增删除属性，以及数组变化
+      4、编译优化：vue2通过标记静态根节点优化diff，Vue3 标记和提升所有静态根节点，diff的时候只需要对比动态节点内容
+      5、打包体积优化：移除了一些不常用的api（inline-template、filter）
+      6、生命周期的变化：使用setup代替了之前的beforeCreate和created
+      7、this变化
+    `,
+  },
+  {
+    name: 'js中的数据类型',
+    desc: `
+      1、typeof：常用于判断基本数据类型，除了 null 检测为 object。对于引用数据类型除了 function 返回 function，其余全部返回 object。
+      2、instanceof：主要用于检测引用数据类型，不适合用来检测基本数据类型。如果检测的类型在当前实例的原型链上，则返回 true，说明这个实例属于这个类型，否则返回 false。
+        例如： A instanceof B，判断 B 在不在 A 的原型链上，如果在就返回 true，如果找到原型链的尽头 null 都没找到，就返回 false。(由于原型链的指向可以随意改动，导致检测不准确)
+
+      3、constructor：获取实例的构造函数判断和某个类型是否相同，如果相同就说明该数据是符合那个数据类型的。使用方法是："实例.constructor"。
+        constructor 可以检测出除了 undefined 和 null 以外的其他类型，因为undefined 和 null 没有原生构造函数。(不可靠，容易被修改)
+        
+      4、object.prototype.toString.call( )：适用于所有类型的判断检测，检测方法是： - Object.prototype.toString.call(数据) ，返回的是该数据类型的字符串。
+    `,
+  },
   {
     name: 'Promise',
     desc: `
@@ -97,13 +124,25 @@ const familiarAttributes = ref([
       常见的宏任务包括 setTimeout、setInterval、I/O 操作、DOM 事件、UI 渲染等；
     `,
   },
-
   {
     name: 'bind、call、apply',
     desc: `
       call: 调用fn.call时会将fn中的this指向修改为传入的第一个参数；将后面的参数传入给fn,并立即执行函数fn。
       apply: 和call相同，区别在于传参形式不同，apply接受两个参数，第一个参数是要指向的this对象，第二个参数是一个数组，数组里面的元素会被展开传入fn,作为fn的参数。
       bind: 修改this指向，但不会立即执行fn；会返回一个修改了this指向后的fn。需要调用才会执行。
+    `,
+  },
+  {
+    name: '输入URL到完成页面渲染到底发生了什么',
+    desc: '',
+  },
+  {
+    name: '优化有哪些',
+    desc: `
+      1、渲染上：
+      2、资源上：
+      3、写法上：
+      减少DOM操作，使用CSS而不是JavaScript来改变样式，异步加载资源，压缩资源，合理利用缓存，减少请求量，
     `,
   },
   {
