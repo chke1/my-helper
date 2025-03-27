@@ -117,6 +117,11 @@ export const routes = [
         component: 'views/feature/directory-picker/index.vue',
         meta: { title: '文件选择器' },
       },
+      {
+        path: '/feature/puppeteer-dom',
+        component: 'views/feature/puppeteer-dom/index.vue',
+        meta: { title: 'puppeteer爬虫' },
+      },
     ],
   },
   {

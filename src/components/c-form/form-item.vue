@@ -385,7 +385,7 @@ const formatDate = (item) => {
       line-height: 22px;
       font-size: 15px;
       font-weight: 800;
-      color: var(--text-color-primary);
+      color: var(--el-text-color-primary);
       margin-top: 0px;
 
       &::before {

@@ -87,7 +87,7 @@ const getValueFormat = ref(props.valueFormat ? props.valueFormat : formatMap[pro
 .c-date-picker--prefix {
   display: block;
   font-size: 14px;
-  color: var(--text-color-primary);
+  color: var(--el-text-color-primary);
   line-height: 1;
   font-style: normal !important;
 }

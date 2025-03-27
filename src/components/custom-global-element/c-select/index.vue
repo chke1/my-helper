@@ -64,7 +64,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 .c-select--prefix {
   font-size: 14px;
-  color: var(--text-color-primary);
+  color: var(--el-text-color-primary) !important;
   line-height: 1;
 }
 </style>

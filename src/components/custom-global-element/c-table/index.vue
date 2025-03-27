@@ -5,7 +5,7 @@
       <el-space wrap :size="10" alignment="center">
         <slot name="search" :data="search"></slot>
 
-        <el-button @click="handleReset">重置</el-button>
+        <el-button @click="handleReset" v-if="isResetButton">重置</el-button>
         <template v-if="searchMode === 'unify'">
           <el-button type="primary">查询</el-button>
         </template>
@@ -96,6 +96,12 @@ const props = defineProps({
   searchMode: {
     type: String,
     default: 'auto',
+  },
+
+  // isResetButton
+  isResetButton: {
+    type: Boolean,
+    default: true,
   },
 });
 
