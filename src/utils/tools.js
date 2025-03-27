@@ -572,6 +572,21 @@ const getUserAgent = () => {
 };
 
 /**
+ * 生成口令
+ * @param {number} length
+ * @returns
+ */
+const generateRandomString = (length) => {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+};
+
+/**
  * 阻塞等待
  * @param {number} time
  * @param {function} callback
@@ -636,6 +651,7 @@ export {
   hidePhone,
   toCase,
   getUserAgent,
+  generateRandomString,
   awit,
   getApi,
 };
