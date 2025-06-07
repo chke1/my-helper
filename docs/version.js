@@ -1,4 +1,4 @@
-var version = '1.9.9';
+var version = '2.0.0';
 if (typeof window !== 'undefined') {
   window.version = version;
 } else {
